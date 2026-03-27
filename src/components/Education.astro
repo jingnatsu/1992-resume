@@ -1,0 +1,24 @@
+---
+interface Props {
+  period: string;
+  degree: string;
+  university: string;
+  location: string;
+}
+
+const { period, degree, university, location } = Astro.props;
+---
+
+<section class="mb-7">
+  <h2
+    class="text-base font-bold text-black mb-3 tracking-wide border-b border-black pb-1"
+  >
+    Education
+  </h2>
+  <div class="text-xs">
+    <div class="font-semibold text-black mb-1">{period}</div>
+    <div class="font-semibold text-black">{degree}</div>
+    <div class="text-gray-700">{university}</div>
+    <div class="text-gray-700">{location}</div>
+  </div>
+</section>

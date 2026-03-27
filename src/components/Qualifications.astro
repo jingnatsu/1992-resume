@@ -1,0 +1,35 @@
+---
+interface Skill {
+  category: string;
+  items: string;
+}
+
+interface Props {
+  skills: Skill[];
+}
+
+const { skills } = Astro.props;
+---
+
+<section class="mb-7">
+  <h2
+    class="text-base font-bold text-black mb-3 tracking-wide border-b border-black pb-1"
+  >
+    Qualifications
+  </h2>
+  <div class="text-xs">
+    <div class="font-semibold text-black mb-1.5">TECHNICAL SKILLS</div>
+    <div class="grid gap-1 text-[11px]">
+      {
+        skills.map(skill => (
+          <div class="flex">
+            <strong class="min-w-[90px] font-semibold text-black">
+              ● {skill.category}:
+            </strong>
+            <span class="flex-1 text-gray-700">{skill.items}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

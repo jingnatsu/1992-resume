@@ -1,0 +1,55 @@
+---
+interface Job {
+  period: string;
+  title: string;
+  company: string;
+  projectName: string;
+  description: string;
+  technicalSkills: string;
+  responsibilities: string[];
+}
+
+interface Props {
+  jobs: Job[];
+}
+
+const { jobs } = Astro.props;
+---
+
+<section class="mb-7">
+  <h2
+    class="text-base font-bold text-black mb-3 tracking-wide border-b border-black pb-1"
+  >
+    Work Experience
+  </h2>
+
+  {
+    jobs.map(job => (
+      <div class="grid grid-cols-[140px_1fr] gap-4 mb-5 break-inside-avoid">
+        <div class="text-xs font-semibold text-black">{job.period}</div>
+        <div>
+          <div class="text-sm font-bold text-black mb-0.5">{job.title}</div>
+          <div class="text-xs text-gray-600 mb-2">{job.company}</div>
+          <div class="text-xs mb-1.5">
+            <strong class="font-semibold text-black">Project Name:</strong>
+            <span class="text-gray-700"> {job.projectName}</span>
+          </div>
+          <p class="text-[11px] text-gray-700 mb-2 leading-snug text-justify">
+            {job.description}
+          </p>
+          <div class="text-[11px] mb-2 italic">
+            <strong class="font-semibold text-black not-italic">
+              Technical Skills:
+            </strong>
+            <span class="text-gray-700"> {job.technicalSkills}</span>
+          </div>
+          <ul class="ml-[18px] text-[11px] text-gray-700 mt-1.5 list-disc">
+            {job.responsibilities.map(resp => (
+              <li class="mb-0.5 leading-snug text-justify">{resp}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    ))
+  }
+</section>
