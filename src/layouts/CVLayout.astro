@@ -15,13 +15,13 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&subset=vietnamese&display=swap"
       rel="stylesheet"
     />
   </head>
   <body class="bg-gray-100 print:bg-white">
     <div
-      class="max-w-[210mm] min-h-[297mm] mx-auto p-[20mm] bg-white print:shadow-none shadow-lg my-5 print:my-0"
+      class="max-w-[210mm] min-h-[297mm] mx-auto p-[20mm] bg-white print:shadow-none shadow-lg my-5 print:my-0 print:p-0 print:max-w-none"
     >
       <slot />
     </div>
@@ -34,16 +34,40 @@ const { title } = Astro.props;
           margin: 0;
         }
 
-        .container {
-          max-width: 100%;
-          margin: 0;
-          padding: 15mm;
-          box-shadow: none;
-        }
-
+        /* @page margin ensures every page (including continuations) has proper spacing */
         @page {
           size: A4;
-          margin: 0;
+          margin: 20mm;
+        }
+
+        /* Clear all margin boxes, only show page number at bottom center */
+        @page {
+          @top-left {
+            content: '';
+          }
+          @top-center {
+            content: '';
+          }
+          @top-right {
+            content: '';
+          }
+          @bottom-left {
+            content: '';
+          }
+          @bottom-center {
+            content: counter(page);
+            font-size: 10pt;
+            color: #666;
+          }
+          @bottom-right {
+            content: '';
+          }
+        }
+
+        /* Keep section heading attached to first entry below it */
+        h2 {
+          break-after: avoid;
+          page-break-after: avoid;
         }
       }
     </style>

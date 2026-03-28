@@ -7,21 +7,31 @@ interface Props {
   email: string;
   linkedin: string;
   website: string;
+  github?: string;
   photoUrl?: string;
 }
 
-const { name, title, location, phone, email, linkedin, website, photoUrl } =
-  Astro.props;
+const {
+  name,
+  title,
+  location,
+  phone,
+  email,
+  linkedin,
+  website,
+  github,
+  photoUrl,
+} = Astro.props;
 ---
 
-<header class="flex gap-6 pb-5">
+<header class="flex gap-6 pb-5 pt-1">
   {
     photoUrl && (
       <div class="flex-shrink-0">
         <img
           src={photoUrl}
           alt={name}
-          class="w-[100px] h-[130px] object-cover object-top border-2 border-slate-200"
+          class="w-[120px] h-[130px] object-cover object-center border-2 border-slate-200"
         />
       </div>
     )
@@ -31,12 +41,12 @@ const { name, title, location, phone, email, linkedin, website, photoUrl } =
     <!-- Name & Title -->
     <div>
       <h1
-        class="text-[28px] font-bold text-slate-900 tracking-wide uppercase leading-tight"
+        class="text-[28px] font-bold text-blue-900 tracking-wide uppercase leading-tight"
       >
         {name}
       </h1>
       <p
-        class="text-[13px] font-semibold text-slate-500 uppercase tracking-[0.15em] mt-0.5"
+        class="text-[13px] font-semibold text-blue-600 uppercase tracking-[0.15em] mt-0.5"
       >
         {title}
       </p>
@@ -135,32 +145,58 @@ const { name, title, location, phone, email, linkedin, website, photoUrl } =
         {linkedin}
       </a>
 
-      <!-- Line 3: Website -->
-      <a
-        href={`https://${website}`}
-        target="_blank"
-        class="flex items-center gap-1 hover:text-slate-900 transition-colors w-fit"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="11"
-          height="11"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="text-slate-400"
+      <!-- Line 3: Website & GitHub -->
+      <div class="flex items-center gap-x-3">
+        <a
+          href={`https://${website}`}
+          target="_blank"
+          class="flex items-center gap-1 hover:text-slate-900 transition-colors w-fit"
         >
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="2" x2="22" y1="12" y2="12"></line>
-          <path
-            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-          ></path>
-        </svg>
-        {website}
-      </a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="11"
+            height="11"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="text-slate-400"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" x2="22" y1="12" y2="12"></line>
+            <path
+              d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+            ></path>
+          </svg>
+          {website}
+        </a>
+        {
+          github && (
+            <>
+              <span class="text-slate-300">|</span>
+              <a
+                href={`https://${github}`}
+                target="_blank"
+                class="flex items-center gap-1 hover:text-slate-900 transition-colors w-fit"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="11"
+                  height="11"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="text-slate-400"
+                >
+                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.607.069-.607 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                </svg>
+                {github}
+              </a>
+            </>
+          )
+        }
+      </div>
     </div>
   </div>
 </header>

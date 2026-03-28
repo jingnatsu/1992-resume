@@ -16,10 +16,10 @@ const jobs = [
     description:
       'The Discovery project involved developing a single-page web application for Chefs Culinar, a leading wholesale distributor for the food service industry. The application was designed to help users create the best offers, monitor and manage system features for restaurants and hotels. Utilizing advanced technical tools and an internal library developed by mgm technology partners, this project aimed to enhance operational efficiency and user experience.',
     technicalSkills:
-      'ReactJS, TypeScript, Styled Components, React Query, NextJS, Angular, Vite, Java, Spring Boot, Gradle, HTML/CSS, PostgreSQL.',
+      'ReactJS, TypeScript, styled-components, React Query, Next.js, Angular, Vite, Java, Spring Boot, Gradle, HTML/CSS, PostgreSQL.',
     responsibilities: [
       'Developed a scalable single-page web application for restaurant and hotel management using internal and external libraries. Optimized for both desktop and mobile platforms.',
-      'Working on Backend side also and collaborating with backend teams to ensure smooth delivery and support product development.',
+      'Also worked on the backend side, collaborating with backend teams to ensure smooth delivery and support product development.',
       'Integrated internal tools into the application, enhancing system capabilities and user experience.',
       'Supported writing Jenkins scripts and CI/CD pipelines for efficient build and deployment processes.',
       'Engaged with German clients to gather requirements and conducted sprint reviews.',
@@ -28,7 +28,7 @@ const jobs = [
   {
     period: '05/2018 - 05/2022',
     title: 'Senior Software Engineer',
-    company: '20Upgrade Vietnam',
+    company: 'Code88 Vietnam',
     projectName: 'Virtual Gaming',
     description:
       'The Virtual Gaming Website is a comprehensive platform designed for both desktop and mobile users, offering a seamless gaming experience. The website allows users to effortlessly log in, engage in exciting games, view their results, and claim promotions. Additionally, it features a robust back-office site for efficient content management and detailed reporting.',
@@ -38,6 +38,7 @@ const jobs = [
       'Developed B2B iframe components and integrated third-party functionalities.',
       'Led bug fixes, performance optimizations, and feature enhancements.',
       'Conducted regular code reviews and mentored junior developers on best practices.',
+      'Architected reusable ReactJS component libraries with Redux and MobX state management, reducing development time across multiple gaming products.',
     ],
   },
   {
@@ -59,12 +60,12 @@ const jobs = [
   {
     period: '04/2014 - 07/2017',
     title: 'Software Engineer',
-    company: 'DXE Vietnam',
+    company: 'DXC Vietnam',
     projectName: 'Integral',
     description:
-      'The Employee Insurance Management Software is a comprehensive solution designed for back-office staff to efficiently manage and administer insurance policies sold and the insurance claims process. This software streamlines various insurance-related processes, ensuring accuracy and improving productivity.',
+      'The Employee Insurance Management Software is a comprehensive solution designed for back-office staff to efficiently manage and administer insurance policies and claims processes. This software streamlines various insurance-related workflows, ensuring accuracy and improving productivity.',
     technicalSkills:
-      'Java, Spring MVC, HTML/CSS/JavaScript, Oracle SQL, Microsoft SQL.',
+      'Java, Spring MVC, HTML/CSS/JavaScript, Oracle, SQL Server.',
     responsibilities: [
       'Authored technical specification documents based on business requirements for SOMPO, a key client.',
       'Developed, unit-tested, and deployed product enhancements to meet client needs.',
@@ -78,13 +79,16 @@ const skills = [
   {
     category: 'Frontend',
     items:
-      'ReactJS, Redux, MobX, JavaScript, TypeScript, HTML/CSS, StyledComponents, NextJS, Angular',
+      'Next.js, ReactJS, Vite, Astro, Angular, Tailwind CSS, Redux, MobX, JavaScript, TypeScript, HTML/CSS, styled-components',
   },
   {
     category: 'Backend',
-    items: 'Java, Spring Boot, PostgreSQL, MS SQL, Oracle, Gradle',
+    items: 'Java, Spring Boot, NestJS, PostgreSQL, MS SQL, Oracle, Gradle',
   },
-  { category: 'Tools', items: 'Git/SVN, Jenkins, CI/CD Pipelines' },
+  {
+    category: 'Tools',
+    items: 'Git/SVN, Jenkins, CI/CD Pipelines, Figma, Docker.',
+  },
 ];
 ---
 
@@ -97,6 +101,8 @@ const skills = [
     email="nnguyen92.tdtit@gmail.com"
     linkedin="linkedin.com/in/nguyen-nam-150989130"
     website="tram1992.com/"
+    github="https://github.com/jingnatsu"
+    photoUrl="public/images/avatar.jpeg"
   />
 
   <CVSummary
@@ -114,5 +120,5 @@ const skills = [
 
   <Qualifications skills={skills} />
 
-  <Certifications certifications={['TOEIC']} />
+  <!-- <Certifications certifications={['TOEIC']} /> -->
 </CVLayout>
